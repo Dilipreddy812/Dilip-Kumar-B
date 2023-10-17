@@ -24,7 +24,7 @@ header > * {
   display: inline-flex;
 }
 
-.nav_links a,li{
+.nav_links a,li,button{
   color: #a8b2d1;
   font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   
