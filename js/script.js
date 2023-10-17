@@ -52,6 +52,6 @@ function showTime() {
     today.getSeconds() +
     " : " +
     today.getMilliseconds();
-  document.getElementById("age").innerHTML = "My Age at the moment :- " + Time;
+  document.getElementById("age").innerHTML = "My Age :- " + Time;
 }
 setInterval(showTime, 1);
