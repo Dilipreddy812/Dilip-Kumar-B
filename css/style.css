@@ -1,0 +1,250 @@
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #0a192f;
+}
+
+header {
+  position: fixed;
+  padding: 1%;
+  width: 100%;
+  height: 100px;
+  background-attachment: fixed;
+  background-color: #0a192f;
+  display: flex;
+  align-items: center; /* Vertically align the header elements in the center of the header */
+  justify-content: space-between; /* Horizontally distribute the space between the header elements */
+}
+
+header > * {
+  
+  display: inline-flex;
+}
+
+.nav_links a,li{
+  color: #a8b2d1;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  
+  display: inline-block;
+  margin: 10px;
+  text-decoration:none ;
+  transition-duration: 0.6s;
+}
+
+/* Use a media query to target screen widths less than 466px */
+@media (max-width: 466px) {
+  .nav_links li,button {
+
+    font-size: small; /* This means the list item element will appear one below the other when the screen width is less than 466px */
+    margin: 0px;
+    padding: 0%;
+  }
+}
+
+
+.nav_links button{
+  color: #a8b2d1;
+  background-color: #0a192f;
+  border-radius: 20%;
+  border-color: #a8b2d1;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: large;
+    transition-duration: 0.6s; /* This means the transition effect will last for 0.4 seconds */
+  }
+  
+.nav_links button:hover {
+    transform: scale(1.08);
+    border-color: #64ffda;
+    color: #64ffda; /* This means the button will grow by 10% when the mouse is over it */
+  }
+  
+  .nav_links button:hover {
+    background-color: #0a192f; /* This means darker green background color when the mouse is over the button */
+  }
+  
+  .nav_links button:active {
+    background-color: #0a192f; /* This means darker green background color when the button is pressed */
+  }
+  
+  .nav_links button:focus {
+    outline: none; /* This means no outline when the button is focused */
+  }
+  
+.nav_links a:hover {
+  color: #64ffda;
+}
+
+#left-sidebar {
+  position: fixed;
+  left: 0;
+  top: 100px; /* Adjust this value according to your header height */
+  margin-top: 200px;
+}
+#left-sidebar > * {
+  display: flex;
+  flex-direction: column; /* This means the logo elements will be arranged in a column */
+  align-items: center; /* This means the logo elements will be centered along the cross axis */
+  justify-content: space-between; /* This means there will be equal space between the logo elements along the main axis */
+}
+#left-sidebar img{
+  height: 30px;
+  width: 30px;
+}
+#right-sidebar {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size:large;
+  color: #64ffda;
+  position: fixed;
+  right: 0;
+  top: 140px; /* Adjust this value according to your header height */
+  margin-top: 180px;
+  height: 260px;
+  transform: rotate(90deg);
+  letter-spacing: 1px;
+  background-color: transparent;
+}
+#age{
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  color: #8892b0;
+  font-size: 30px;
+  padding: 1%;
+}
+@media (max-width:466px){
+  
+  #main age{font-size: 20px;
+    display: flex;
+    width: 85%;
+  }
+  #main h1{
+    font-size: 25px;
+  }
+}
+#main{
+  padding-top: 130px;
+  padding-left: 90px;
+}
+@media (max-width:466px){
+  #main{
+  padding-top: 130px;
+  padding-left: 50px;
+  width: 90%;
+}
+
+}
+#hi{
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  color: #64ffda;
+  font-size: larger;
+  letter-spacing: 1px;
+  padding-left: 1%;
+}
+#name{
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  color: #ccd6f6;
+  font-size: 70px;
+  padding: 1%;
+}
+#l1{
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  color: #a8b2d1;
+  font-size: 70px;
+  padding: 1%;
+}
+#l2{
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  color: #a8b2d1;
+  font-size: large;
+  font-weight: 500;
+  padding:1%;
+}
+
+
+#about h1{
+  color: #ccd6f6;
+  padding-top: 5%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+#about p{
+  width:90%;
+  letter-spacing: 0.5px;
+  color: #ccd6f6;
+  font-size: large;
+  font-weight: 400;
+  padding-top: 2%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+
+#experience h1{
+  color: #ccd6f6;
+  padding-top: 5%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+#experience p{
+  width:90%;
+  letter-spacing: 0.5px;
+  color: #ccd6f6;
+  font-size: large;
+  font-weight: 400;
+  padding-top: 2%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+
+#projects  h1{
+  color: #ccd6f6;
+  padding-top: 5%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+#projects p{
+  width:90%;
+  letter-spacing: 0.5px;
+  color: #ccd6f6;
+  font-size: large;
+  font-weight: 400;
+  padding-top: 2%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+
+#contact{
+  color: #ccd6f6;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  font-size: large;
+}
+
+#contact h1{
+  color: #ccd6f6;
+  padding-top: 5%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+#contact p{
+  width:90%;
+  letter-spacing: 0.5px;
+  color: #ccd6f6;
+  font-size: large;
+  font-weight: 400;
+  padding-top: 2%;
+  font-family: Calibre, Inter, "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+
+#contact a{
+  padding-left: 40%;
+  padding-bottom: 10%;
+  display: inline-block;
+  text-decoration:none ;
+}
+
+#wtsap{
+  margin-top: 10px;
+  padding: 10px;
+  height: 70px;
+  width: 70px;
+}
+
+@media(max-width:466px){
+  #main p{
+    padding: 1px;
+    font-size: small;
+  }
+}
