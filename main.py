@@ -1,7 +1,7 @@
 import pandas as pd
 from pyweb import pydom
 from pyscript import display
-from js import Blob, URL, document
+from js import Blob, URL, document, FileReader, alert
 
 def convertCsvToJson(event):
     # Get the uploaded file
@@ -10,7 +10,7 @@ def convertCsvToJson(event):
         alert('Please upload a CSV file.')
         return
 
-    file = file_input.files[0]
+    file = file_input.files[0]  # Access the first file in the FileList
     reader = FileReader.new()
     reader.onload = lambda e: process_csv(e.target.result)
     reader.readAsText(file)
@@ -35,4 +35,5 @@ def process_csv(csv_data):
         alert(f'Error processing CSV: {str(e)}')
 
 # Attach the conversion function to the button click event
-pydom["button#btn-convert"].on("click", convertCsvToJson)
+convert_button = document.getElementById('btn-convert')
+convert_button.onclick = convertCsvToJson
