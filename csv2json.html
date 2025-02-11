@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CSV to JSON Converter (PyScript)</title>
   <!-- Link to PyScript assets -->
-  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <link rel="stylesheet" href="https://pyscript.net/releases/latest/core.css" />
+  <script defer src="https://pyscript.net/releases/latest/core.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -42,11 +42,11 @@
   </div>
 
   <py-script>
-    from js import document, File, Blob, URL
+    from js import document, FileReader, Blob, URL
     import pandas as pd
     import io
 
-    def convert_csv_to_json():
+    def convert_csv_to_json(*args):
         # Get the uploaded file
         file_input = document.getElementById('csvFileInput')
         if not file_input.files.length:
@@ -54,32 +54,28 @@
             return
 
         file = file_input.files[0]
-        reader = File.new([file]).text()
+        reader = FileReader.new()
+        reader.onload = lambda e: process_csv(e.target.result)
+        reader.readAsText(file)
 
-        # Read the file content
-        csv_data = reader.result
-        if not csv_data:
-            alert('Failed to read the file.')
-            return
-
-        # Convert CSV to JSON using pandas
+    def process_csv(csv_data):
         try:
+            # Convert CSV to JSON using pandas
             df = pd.read_csv(io.StringIO(csv_data))
             json_data = df.to_json(orient='records', indent=4)
+
+            # Display JSON in the textarea
+            json_output = document.getElementById('jsonOutput')
+            json_output.value = json_data
+
+            # Create a downloadable link
+            blob = Blob.new([json_data], {type: 'application/json'})
+            download_link = document.getElementById('downloadLink')
+            download_link.href = URL.createObjectURL(blob)
+            download_link.style.display = 'inline-block'
+            download_link.textContent = 'Download JSON'
         except Exception as e:
             alert(f'Error processing CSV: {str(e)}')
-            return
-
-        # Display JSON in the textarea
-        json_output = document.getElementById('jsonOutput')
-        json_output.value = json_data
-
-        # Create a downloadable link
-        blob = Blob.new([json_data], {type: 'application/json'})
-        download_link = document.getElementById('downloadLink')
-        download_link.href = URL.createObjectURL(blob)
-        download_link.style.display = 'inline-block'
-        download_link.textContent = 'Download JSON'
 
     # Attach the conversion function to the button click event
     convert_button = document.getElementById('convertButton')
