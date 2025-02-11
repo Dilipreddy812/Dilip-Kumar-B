@@ -6,11 +6,19 @@ from js import Blob, URL, document, FileReader, alert
 def convertCsvToJson(event):
     # Get the uploaded file
     file_input = document.getElementById('csvFileInput')
-    if not file_input.files.length:
+    
+    # Check if a file was uploaded
+    if file_input.files.length == 0:
         alert('Please upload a CSV file.')
         return
 
-    file = file_input.files[0]  # Access the first file in the FileList
+    # Access the first file in the FileList
+    file = file_input.files.item(0)  # Use .item() to access the file
+    if not file:
+        alert('Failed to read the uploaded file.')
+        return
+
+    # Read the file content
     reader = FileReader.new()
     reader.onload = lambda e: process_csv(e.target.result)
     reader.readAsText(file)
