@@ -1,4 +1,5 @@
 import pandas as pd
+import io  # Import the io module
 from pyweb import pydom
 from pyscript import display
 from js import Blob, URL, document, FileReader, alert
@@ -26,7 +27,7 @@ def convertCsvToJson(event):
 def process_csv(csv_data):
     try:
         # Convert CSV to JSON using pandas
-        df = pd.read_csv(io.StringIO(csv_data))
+        df = pd.read_csv(io.StringIO(csv_data))  # Use io.StringIO to simulate a file-like object
         json_data = df.to_json(orient='records', indent=4)
 
         # Display JSON in the textarea
