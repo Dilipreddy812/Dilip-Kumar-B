@@ -1,0 +1,3 @@
+name = "CSV to JSON Converter"
+description = "A simple application that converts a CSV file to JSON using PyScript and Pandas."
+packages = ["pandas"]
